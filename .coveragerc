@@ -1,0 +1,25 @@
+[run]
+branch = True
+source =
+    pytrace
+
+[paths]
+source =
+    src/pytrace
+    **/site-packages/pytrace
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self.debug
+    raise AssertionError
+    raise NotImplentedError
+    if 0:
+    if __name__ == .__main__.:
+
+ignore_errors = True
+
+[html]
+title = pytrace Coverage Test Report
+directory = docs/source/_static/coverage
