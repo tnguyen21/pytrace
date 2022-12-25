@@ -23,12 +23,12 @@ class Tuple:
     def __mul__(self, scalar: float):
         # TODO look into defining mult and div between scalars and tuple
         # atm, Tuple * scalar works, scalar * Tuple is undefined -- inconvenient
-        if not isinstance(scalar, float) and not isinstance(scalar, int):
+        if not isinstance(scalar, (float, int)):
             raise TypeError
         return Tuple(self.x * scalar, self.y * scalar, self.z * scalar, self.w * scalar)
 
     def __truediv__(self, scalar: float):
-        if not isinstance(scalar, float) and not isinstance(scalar, int):
+        if not isinstance(scalar, (float, int)):
             raise TypeError
         return Tuple(self.x / scalar, self.y / scalar, self.z / scalar, self.w / scalar)
 
@@ -71,7 +71,7 @@ class Color(Tuple):
             new_r = self.x * other.x
             new_g = self.y * other.y
             new_b = self.z * other.z
-        elif isinstance(other, int) or isinstance(other, float):
+        elif isinstance(other, (float, int)):
             return super().__mul__(other)
         else:
             raise TypeError
