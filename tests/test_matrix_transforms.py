@@ -73,8 +73,8 @@ class MatrixTransformsTestCase(unittest.TestCase):
 
     def test_rotate_y(self):
         p = Point(0, 0, 1)
-        half_quarter = transforms.rotation_x(PI / 4)
-        full_quarter = transforms.rotation_x(PI / 2)
+        half_quarter = transforms.rotation_y(PI / 4)
+        full_quarter = transforms.rotation_y(PI / 2)
 
         half_quarter_rotation = p @ half_quarter
         expected_half_quarter = Point(np.sqrt(2)/2, 0, np.sqrt(2)/2)
@@ -90,8 +90,8 @@ class MatrixTransformsTestCase(unittest.TestCase):
 
     def test_rotate_z(self):
         p = Point(0, 1, 0)
-        half_quarter = transforms.rotation_x(PI / 4)
-        full_quarter = transforms.rotation_x(PI / 2)
+        half_quarter = transforms.rotation_z(PI / 4)
+        full_quarter = transforms.rotation_z(PI / 2)
 
         half_quarter_rotation = p @ half_quarter
         expected_half_quarter = Point(-np.sqrt(2)/2, np.sqrt(2)/2, 0)

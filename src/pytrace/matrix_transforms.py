@@ -17,16 +17,30 @@ def translation(x: float, y: float, z: float) -> np.array:
     return translation_matrix
 
 def scaling(x: float, y: float, z: float) -> np.array:
-    return np.eye(4)
+    v = np.array([x, y, z, 1])
+    return np.diag(v)
 
 def rotation_x(rad: float) -> np.array:
-    return np.eye(4)
+    rotation_matrix = np.array([[np.cos(rad), -np.sin(rad)],
+                                [np.sin(rad), np.cos(rad)]])
+    transform = np.eye(4)
+    transform[1:3, 1:3] = rotation_matrix
+    return transform
 
 def rotation_y(rad: float) -> np.array:
-    return np.eye(4)
+    transform = np.eye(4)
+    transform[0][0] = np.cos(rad)
+    transform[2][0] = -np.sin(rad)
+    transform[0][2] = np.sin(rad)
+    transform[2][2] = np.cos(rad)
+    return transform
 
 def rotation_z(rad: float) -> np.array:
-    return np.eye(4)
+    rotation_matrix = np.array([[np.cos(rad), -np.sin(rad)],
+                                [np.sin(rad), np.cos(rad)]])
+    transform = np.eye(4)
+    transform[0:2, 0:2] = rotation_matrix
+    return transform
 
 def shearing(
     x_to_y: float,
