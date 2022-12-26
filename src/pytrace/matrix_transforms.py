@@ -50,4 +50,11 @@ def shearing(
     z_to_x: float,
     z_to_y: float
 ) -> np.array:
-    return np.eye(4)
+    transform = np.eye(4)
+    transform[0][1] = x_to_y
+    transform[0][2] = x_to_z
+    transform[1][0] = y_to_x
+    transform[1][2] = y_to_z
+    transform[2][0] = z_to_x
+    transform[2][1] = z_to_y
+    return transform
