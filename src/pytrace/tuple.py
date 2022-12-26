@@ -27,6 +27,16 @@ class Tuple:
             raise TypeError
         return Tuple(self.x * scalar, self.y * scalar, self.z * scalar, self.w * scalar)
 
+    def __matmul__(self, other):
+        if not isinstance(other, np.ndarray):
+            raise TypeError
+
+        v = np.array([self.x, self.y, self.z, self.w])
+        new_v = v @ other
+        x, y, z, w = new_v
+
+        return Tuple(x, y, z, w)
+
     def __truediv__(self, scalar: float):
         if not isinstance(scalar, (float, int)):
             raise TypeError

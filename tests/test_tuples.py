@@ -56,6 +56,11 @@ class TupleTestCase(unittest.TestCase):
         a = Tuple(1, -2, 3, -4)
         self.assertTrue(a * 0.5 == Tuple(0.5, -1, 1.5, -2))
 
+    def test_multiply_tuple_by_matrix(self):
+        eye = np.eye(4)
+        a = Tuple(1, 2, 3, 4)
+        self.assertTrue(a @ eye == a)
+
     def test_dividing_tuple_by_scalar(self):
         a = Tuple(1, -2, 3, -4)
         self.assertTrue(a / 2 == Tuple(0.5, -1, 1.5, -2))
