@@ -35,7 +35,7 @@ class MatrixTransformsTestCase(unittest.TestCase):
     def test_inversing_scaling(self):
         transform = transforms.scaling(2, 3, 4)
         inv = np.linalg.inv(transform)
-        v = Vector(-2, 3, 8)
+        v = Vector(-4, 6, 8)
         self.assertTrue(v @ inv == Vector(-2, 2, 2))
 
     def test_reflection_by_scaling(self):
