@@ -11,7 +11,10 @@ from .tuple import Tuple, Point, Vector
 import numpy as np
 
 def translation(x: float, y: float, z: float) -> np.array:
-    return np.eye(4)
+    translation_vector = np.array([x, y, z, 1])
+    translation_matrix = np.eye(4)
+    translation_matrix[:, -1] = translation_vector
+    return translation_matrix
 
 def scaling(x: float, y: float, z: float) -> np.array:
     return np.eye(4)

@@ -32,7 +32,7 @@ class Tuple:
             raise TypeError
 
         v = np.array([self.x, self.y, self.z, self.w])
-        new_v = v @ other
+        new_v = other @ v
         x, y, z, w = new_v
 
         return Tuple(x, y, z, w)
