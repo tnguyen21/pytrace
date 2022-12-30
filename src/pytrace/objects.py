@@ -8,12 +8,14 @@
 # from tuple import Point
 
 from .tuple import Point
+from .material import Material
 import numpy as np
 
 class SceneObject:
-    def __init__(self, position: Point = Point(0, 0, 0)):
+    def __init__(self, position: Point = Point(0, 0, 0), material: Material = Material()):
         self.position = position
         self.transform = np.eye(4)
+        self.material = material
 
     def set_transform(self, m: np.array):
         """ m: 4x4 array representing transform """

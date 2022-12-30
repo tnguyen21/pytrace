@@ -55,6 +55,9 @@ class Tuple:
     def dot(self, other):
         return (self.x * other.x) + (self.y * other.y) + (self.z * other.z) + (self.w * other.w)
 
+    def reflect(self, normal_v):
+        """ reflect self over normal_v """
+        return self - (normal_v * 2 * self.dot(normal_v))
 
 class Point(Tuple):
     def __init__(self, x: float, y: float, z: float):

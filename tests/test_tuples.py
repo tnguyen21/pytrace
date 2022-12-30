@@ -109,6 +109,23 @@ class TupleTestCase(unittest.TestCase):
         self.assertTrue(a.cross(b) == Vector(-1, 2, -1))
         self.assertTrue(b.cross(a) == Vector(1, -2, 1))
 
+    # === test vector reflection ===
+    def test_vector_reflect_45_deg(self):
+        v = Vector(1, -1, 0)
+        n = Vector(0, 1, 0)
+        r = v.reflect(n)
+        self.assertTrue(r == Vector(1, 1, 0))
+
+    def test_vector_reflect_slanted(self):
+        v = Vector(0, -1, 0)
+        n = Vector(np.sqrt(2) / 2, np.sqrt(2) / 2, 0)
+        r = v.reflect(n)
+        expected_r = Vector(1, 0, 0)
+        self.assertAlmostEqual(r.x, expected_r.x)
+        self.assertAlmostEqual(r.y, expected_r.y)
+        self.assertAlmostEqual(r.z, expected_r.z)
+        self.assertAlmostEqual(r.w, expected_r.w)
+
 class ColorTestCase(unittest.TestCase):
     """
     TODO
