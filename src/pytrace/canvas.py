@@ -13,8 +13,6 @@ class Canvas:
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
-        # ? should this be a matrix
-
         self.pixels = [[Color(0, 0, 0) for _ in range(width)] for _ in range(height)]
 
     def write_pixel(self, x: int, y: int, color: Color) -> None:
