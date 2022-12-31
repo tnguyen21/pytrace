@@ -5,10 +5,10 @@
 # #hack to get imports working in package
 # #pylint: disable=wrong-import-position
 # #pylint: disable=import-error
-# from tuple import Tuple, Point, Vector
+# from tuple import Point, Vector
 # from objects import SceneObject
 
-from .tuple import Tuple, Point, Vector
+from .tuple import Point, Vector
 from .objects import SceneObject
 import numpy as np
 
@@ -30,12 +30,11 @@ class Ray:
         discriminant = b * b - 4 * a * c
         if discriminant < 0:
             return []
-        else:
-            t1 = (-b - np.sqrt(discriminant)) / (2 * a)
-            t2 = (-b + np.sqrt(discriminant)) / (2 * a)
-            i1 = Intersection(t1, obj)
-            i2 = Intersection(t2, obj)
-            return [i1, i2]
+        t1 = (-b - np.sqrt(discriminant)) / (2 * a)
+        t2 = (-b + np.sqrt(discriminant)) / (2 * a)
+        i1 = Intersection(t1, obj)
+        i2 = Intersection(t2, obj)
+        return [i1, i2]
 
     def transform(self, m: np.array):
         new_origin = self.origin @ m
@@ -60,5 +59,4 @@ class Intersections:
         sorted_xs = sorted(nonnegative_xs, key=lambda x: x.t)
         if len(sorted_xs) == 0:
             return None
-        else:
-            return sorted_xs[0]
+        return sorted_xs[0]

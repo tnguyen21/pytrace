@@ -53,7 +53,7 @@ def lighting(
         else:
             factor = reflect_dot_eye ** m.shininess
             specular = light.intensity * m.specular * factor
-    
+
     # final shading is sum of all light contributions
     final_color = ambient + diffuse + specular
     return Color(final_color.x, final_color.y, final_color.z)

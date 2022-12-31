@@ -5,9 +5,7 @@
 # #hack to get imports working in package
 # #pylint: disable=wrong-import-position
 # #pylint: disable=import-error
-# from tuple import Tuple, Point, Vector
 
-from .tuple import Tuple, Point, Vector
 import numpy as np
 
 def translation(x: float, y: float, z: float) -> np.array:

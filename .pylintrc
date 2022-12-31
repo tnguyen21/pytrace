@@ -33,7 +33,8 @@ disable=raw-checker-failed,
         too-many-nested-blocks,
         no-else-break,
         broad-except,
-        pointless-string-statement
+        pointless-string-statement,
+        too-few-public-methods
 
 enable=useless-object-inheritance,
        unused-variable,

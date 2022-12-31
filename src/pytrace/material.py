@@ -23,7 +23,7 @@ class Material:
         self.diffuse = diffuse
         self.specular = specular
         self.shininess = shininess
-    
+
     def __eq__(self, other):
         return (
             self.color == other.color and
