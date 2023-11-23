@@ -1,16 +1,7 @@
-# import sys
-# import os
-# sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src/pytrace")
-
-# #hack to get imports working in package
-# #pylint: disable=wrong-import-position
-# #pylint: disable=import-error
-# from tuple import Point, Vector
-# from objects import SceneObject
-
-from .tuple import Point, Vector
-from .objects import SceneObject
+from tuple import Point, Vector
+from objects import SceneObject
 import numpy as np
+
 
 class Ray:
     def __init__(self, origin: Point, direction: Vector):

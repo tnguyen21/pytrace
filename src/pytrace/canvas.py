@@ -1,13 +1,5 @@
-# import sys
-# import os
-# sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src/pytrace")
+from tuple import Color
 
-# # hack to get relative imports working in script
-# # pylint: disable=wrong-import-position
-# # pylint: disable=import-error
-# from tuple import Color
-
-from .tuple import Color
 
 class Canvas:
     def __init__(self, width: int, height: int):
