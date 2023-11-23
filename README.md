@@ -3,6 +3,8 @@
 toy ray tracer implemented in python.
 based off of ["The Ray Tracer Challenge" by Jamis Buck](http://raytracerchallenge.com/)
 
+![3D sphere with light reflection from produced by ray tracer](raysphere3d.png)
+
 ## Development Setup
 
 1. Create new virtual environment `python -m venv <env-name>`
