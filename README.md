@@ -11,6 +11,11 @@ based off of ["The Ray Tracer Challenge" by Jamis Buck](http://raytracerchalleng
 2. Activate environment `./<env-name>/Scripts/activate`
 3. Install requirements `pip install -r requirements.dev.txt`
 
+## Running Examples
+
+1. activate environment
+2. `python examples/raysphere3d_demo.py`
+
 ## Running Tests
 
 ```sh
