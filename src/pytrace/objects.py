@@ -1,7 +1,15 @@
-from tuple import Point
-from material import Material
-import numpy as np
+# import sys
+# import os
+# sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src/pytrace")
 
+# #hack to get imports working in package
+# #pylint: disable=wrong-import-position
+# #pylint: disable=import-error
+# from tuple import Point
+
+from .tuple import Point
+from .material import Material
+import numpy as np
 
 class SceneObject:
     def __init__(self, position: Point = Point(0, 0, 0), material: Material = Material()):

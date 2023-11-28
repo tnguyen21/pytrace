@@ -1,5 +1,13 @@
-from tuple import Color
+# import sys
+# import os
+# sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src/pytrace")
 
+# #hack to get imports working in package
+# #pylint: disable=wrong-import-position
+# #pylint: disable=import-error
+# from tuple import Tuple, Point, Vector
+
+from .tuple import Color
 
 class Material:
     def __init__(
