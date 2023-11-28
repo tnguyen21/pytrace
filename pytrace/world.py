@@ -18,3 +18,10 @@ class World:
         s2.transform = scaling(0.5, 0.5, 0.5)
         self.objects.append(s2)
         self.light_source = PointLight(Point(-10, 10, -10), Color(1, 1, 1))
+
+    def intersect(self, ray):
+        intersections = []
+        for obj in self.objects:
+            intersections.extend(ray.intersect(obj))
+        intersections.sort(key=lambda x: x.t)
+        return intersections
