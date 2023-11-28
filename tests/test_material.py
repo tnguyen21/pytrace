@@ -1,6 +1,6 @@
 import unittest
-from src.pytrace.material import Material
-from src.pytrace.objects import Sphere
+from pytrace.material import Material
+from pytrace.objects import Sphere
 
 class MaterialTestCase(unittest.TestCase):
     def test_objects_have_default_material(self):

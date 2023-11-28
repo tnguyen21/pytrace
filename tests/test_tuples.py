@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.pytrace.tuple import Tuple, Point, Vector, Color
+from pytrace.tuple import Tuple, Point, Vector, Color
 
 class TupleTestCase(unittest.TestCase):
     """

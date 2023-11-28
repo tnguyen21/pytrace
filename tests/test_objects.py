@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
-import src.pytrace.matrix_transforms as transforms
-from src.pytrace.tuple import Point, Vector
-from src.pytrace.objects import Sphere
+import pytrace.matrix_transforms as transforms
+from pytrace.tuple import Point, Vector
+from pytrace.objects import Sphere
 
 class ObjectsTestCase(unittest.TestCase):
     def test_default_obj_transformation(self):

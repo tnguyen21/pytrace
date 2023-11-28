@@ -1,6 +1,6 @@
 import unittest
-from src.pytrace.canvas import Canvas
-from src.pytrace.tuple import Color
+from pytrace.canvas import Canvas
+from pytrace.tuple import Color
 
 class CanvasTestCase(unittest.TestCase):
     def test_canvas_construction(self):

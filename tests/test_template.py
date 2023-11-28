@@ -1,5 +1,5 @@
 import unittest
-import src.pytrace.tuple # example relative import
+import pytrace.tuple # example relative import
 
 class TemplateTestCase(unittest.TestCase):
     def test_simple_assertion(self):

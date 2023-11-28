@@ -1,8 +1,8 @@
 import unittest
-import src.pytrace.matrix_transforms as transforms
-from src.pytrace.tuple import Point, Vector
-from src.pytrace.ray import Ray, Intersection, Intersections
-from src.pytrace.objects import Sphere
+import pytrace.matrix_transforms as transforms
+from pytrace.tuple import Point, Vector
+from pytrace.ray import Ray, Intersection, Intersections
+from pytrace.objects import Sphere
 
 class RayTestCase(unittest.TestCase):
     def test_ray_construction(self):

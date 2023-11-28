@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
-from src.pytrace.lighting import PointLight, lighting
-from src.pytrace.material import Material
-from src.pytrace.tuple import Color, Point, Vector
+from pytrace.lighting import PointLight, lighting
+from pytrace.material import Material
+from pytrace.tuple import Color, Point, Vector
 
 class LightingTestCase(unittest.TestCase):
     def test_pointlight_construction(self):

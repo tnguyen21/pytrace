@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-import src.pytrace.matrix_transforms as transforms
-from src.pytrace.tuple import Point, Vector
+import pytrace.matrix_transforms as transforms
+from pytrace.tuple import Point, Vector
 
 PI = np.pi
 
