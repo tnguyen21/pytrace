@@ -78,6 +78,13 @@ class Color(Tuple):
     def __init__(self, r: float, g: float, b: float):
         super().__init__(r, g, b, 0.0)
 
+    @property
+    def r(self): return self.x
+    @property
+    def g(self): return self.y
+    @property
+    def b(self): return self.z
+
     def __mul__(self, other):
         """ notion of blending colors, only works between two colors """
         if isinstance(other, Color):
