@@ -81,11 +81,11 @@ class Computations:
         comps.point = r.position(comps.t)
         comps.eye_vector = -r.direction
         comps.normal_vector = comps.obj.normal_at(comps.point)
-        # if comps.normal_vector.dot(comps.eye_vector) < 0:
-        #     comps.inside = True
-        #     comps.normal_vector = -comps.normal_vector
-        # else:
-        #     comps.inside = False
+        if comps.normal_vector.dot(comps.eye_vector) < 0:
+            comps.inside = True
+            comps.normal_vector = -comps.normal_vector
+        else:
+            comps.inside = False
         # comps.over_point = comps.point + comps.normal_vector * 0.0001
         # comps.under_point = comps.point - comps.normal_vector * 0.0001
         # comps.reflect_vector = r.direction.reflect(comps.normal_vector)

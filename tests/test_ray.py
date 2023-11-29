@@ -152,3 +152,20 @@ class RayTestCase(unittest.TestCase):
         self.assertTrue(comps.point == Point(0, 0, -1))
         self.assertTrue(comps.eye_vector == Vector(0, 0, -1))
         self.assertTrue(comps.normal_vector == Vector(0, 0, -1))
+    
+    def test_hit_when_intersection_occurs_on_outside(self):
+        r = Ray(Point(0, 0, -5), Vector(0, 0, 1))
+        s = Sphere()
+        i = Intersection(4, s)
+        comps = Computations.prepare_computations(i, r)
+        self.assertTrue(comps.inside == False)
+    
+    def test_hit_when_intersection_occurs_on_inside(self):
+        r = Ray(Point(0, 0, 0), Vector(0, 0, 1))
+        s = Sphere()
+        i = Intersection(1, s)
+        comps = Computations.prepare_computations(i, r)
+        self.assertTrue(comps.point == Point(0, 0, 1))
+        self.assertTrue(comps.eye_vector == Vector(0, 0, -1))
+        self.assertTrue(comps.inside == True)
+        self.assertTrue(comps.normal_vector == Vector(0, 0, -1))
