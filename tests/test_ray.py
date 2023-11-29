@@ -1,7 +1,7 @@
 import unittest
 import pytrace.matrix_transforms as transforms
 from pytrace.tuple import Point, Vector
-from pytrace.ray import Ray, Intersection, Intersections
+from pytrace.ray import Ray, Intersection, Intersections, Computations
 from pytrace.objects import Sphere
 
 class RayTestCase(unittest.TestCase):
@@ -141,3 +141,14 @@ class RayTestCase(unittest.TestCase):
         s.set_transform(transforms.translation(5, 0, 0))
         xs = r.intersect(s)
         self.assertTrue(len(xs) == 0)
+
+    def test_prepare_computations(self):
+        r = Ray(Point(0, 0, -5), Vector(0, 0, 1))
+        s = Sphere()
+        i = Intersection(4, s)
+        comps = Computations.prepare_computations(i, r)
+        self.assertTrue(comps.t == i.t)
+        self.assertTrue(comps.obj == i.obj)
+        self.assertTrue(comps.point == Point(0, 0, -1))
+        self.assertTrue(comps.eye_vector == Vector(0, 0, -1))
+        self.assertTrue(comps.normal_vector == Vector(0, 0, -1))

@@ -60,3 +60,33 @@ class Intersections:
         if len(sorted_xs) == 0:
             return None
         return sorted_xs[0]
+    
+class Computations:
+    def __init__(self):
+        self.t = None
+        self.obj = None
+        self.point = None
+        self.eye_vector = None
+        self.normal_vector = None
+        self.inside = None
+        self.over_point = None
+        self.under_point = None
+        self.reflect_vector = None
+
+    @staticmethod
+    def prepare_computations(i: Intersection, r: Ray):
+        comps = Computations()
+        comps.t = i.t
+        comps.obj = i.obj
+        comps.point = r.position(comps.t)
+        comps.eye_vector = -r.direction
+        comps.normal_vector = comps.obj.normal_at(comps.point)
+        # if comps.normal_vector.dot(comps.eye_vector) < 0:
+        #     comps.inside = True
+        #     comps.normal_vector = -comps.normal_vector
+        # else:
+        #     comps.inside = False
+        # comps.over_point = comps.point + comps.normal_vector * 0.0001
+        # comps.under_point = comps.point - comps.normal_vector * 0.0001
+        # comps.reflect_vector = r.direction.reflect(comps.normal_vector)
+        return comps
