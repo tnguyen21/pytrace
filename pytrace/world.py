@@ -1,6 +1,6 @@
 from .objects import Sphere
 from .tuple import Color, Point
-from .lighting import PointLight
+from .lighting import PointLight, lighting
 from .matrix_transforms import scaling
 
 class World:
@@ -25,3 +25,12 @@ class World:
             intersections.extend(ray.intersect(obj))
         intersections.sort(key=lambda x: x.t)
         return intersections
+
+    def shade_hit(self, comps):
+        return lighting(
+            comps.obj.material,
+            self.light_source,
+            comps.point,
+            comps.eye_vector,
+            comps.normal_vector
+        )
