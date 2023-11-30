@@ -1,7 +1,9 @@
+import numpy as np
+
 from .objects import Sphere
 from .tuple import Color, Point
 from .lighting import PointLight, lighting
-from .matrix_transforms import scaling
+from .matrix_transforms import scaling, translation
 from .ray import Intersections, Computations
 
 class World:

@@ -7,6 +7,7 @@
 # #pylint: disable=import-error
 
 import numpy as np
+from .tuple import Vector
 
 def translation(x: float, y: float, z: float) -> np.array:
     translation_vector = np.array([x, y, z, 1])
@@ -56,3 +57,17 @@ def shearing(
     transform[2][0] = z_to_x
     transform[2][1] = z_to_y
     return transform
+
+def view_transform(from_point, to_point, up_vector):
+    forward = (to_point - from_point).normalize()
+    forward = Vector(forward.x, forward.y, forward.z)
+    upn = up_vector.normalize()
+    left = forward.cross(upn)
+    true_up = left.cross(forward)
+    orientation = np.array([
+        [left.x, left.y, left.z, 0],
+        [true_up.x, true_up.y, true_up.z, 0],
+        [-forward.x, -forward.y, -forward.z, 0],
+        [0, 0, 0, 1]
+    ])
+    return orientation @ np.linalg.inv(translation(from_point.x, from_point.y, from_point.z))

@@ -134,3 +134,39 @@ class MatrixTransformsTestCase(unittest.TestCase):
         transform = transforms.shearing(0, 0, 0, 0, 0, 1)
         p = Point(2, 3, 4)
         self.assertTrue(p @ transform == Point(2, 3, 7))
+
+    def test_transform_default(self):
+        from_p = Point(0, 0, 0)
+        to_p = Point(0, 0, -1)
+        up_v = Vector(0, 1, 0)
+        t = transforms.view_transform(from_p, to_p, up_v)
+        self.assertTrue(np.all(t == np.eye(4)))
+    
+    def test_transform_positive_z(self):
+        from_p = Point(0, 0, 0)
+        to_p = Point(0, 0, 1)
+        up_v = Vector(0, 1, 0)
+        t = transforms.view_transform(from_p, to_p, up_v)
+        self.assertTrue(np.all(t == transforms.scaling(-1, 1, -1)))
+    
+    def test_transform_moves_world(self):
+        from_p = Point(0, 0, 8)
+        to_p = Point(0, 0, 0)
+        up_v = Vector(0, 1, 0)
+        t = transforms.view_transform(from_p, to_p, up_v)
+        self.assertTrue(np.all(t == transforms.translation(0, 0, -8)))
+
+    def test_transform_arbitraty(self):
+        from_p = Point(1, 3, 2)
+        to_p = Point(4, -2, 8)
+        up_v = Vector(1, 1, 0)
+        t = transforms.view_transform(from_p, to_p, up_v)
+        expected = np.array([
+            [-0.50709, 0.50709, 0.67612, -2.36643],
+            [0.76772, 0.60609, 0.12122, -2.82843],
+            [-0.35857, 0.59761, -0.71714, 0.00000],
+            [0.00000, 0.00000, 0.00000, 1.00000]
+        ])
+        for i in range(4):
+            for j in range(4):
+                self.assertAlmostEqual(t[i][j], expected[i][j], 5)
