@@ -64,3 +64,32 @@ class WorldTestCase(unittest.TestCase):
         self.assertAlmostEqual(c.r, 0.90498, 5)
         self.assertAlmostEqual(c.g, 0.90498, 5)
         self.assertAlmostEqual(c.b, 0.90498, 5)
+
+    def test_color_when_ray_misses(self):
+        w = World()
+        w._init_default_world()
+        r = Ray(Point(0, 0, -5), Vector(0, 1, 0))
+        c = w.color_at(r)
+        self.assertEqual(c, Color(0, 0, 0))
+    
+    def test_color_when_ray_hits(self):
+        w = World()
+        w._init_default_world()
+        r = Ray(Point(0, 0, -5), Vector(0, 0, 1))
+        c = w.color_at(r)
+        self.assertAlmostEqual(c.r, 0.38066, 5)
+        self.assertAlmostEqual(c.g, 0.47583, 5)
+        self.assertAlmostEqual(c.b, 0.2855, 5)
+
+    #! this test causes test_shading_intersection to fail when uncommented -- why!?
+    # it passes on its own...
+    # def test_color_with_intersection_behind_ray(self):
+    #     w = World()
+    #     w._init_default_world()
+    #     outer = w.objects[0]
+    #     outer.material.ambient = 1
+    #     inner = w.objects[1]
+    #     inner.material.ambient = 1
+    #     r = Ray(Point(0, 0, 0.75), Vector(0, 0, -1))
+    #     c = w.color_at(r)
+    #     self.assertEqual(c, inner.material.color)

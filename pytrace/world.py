@@ -2,6 +2,7 @@ from .objects import Sphere
 from .tuple import Color, Point
 from .lighting import PointLight, lighting
 from .matrix_transforms import scaling
+from .ray import Intersections, Computations
 
 class World:
     def __init__(self):
@@ -34,3 +35,11 @@ class World:
             comps.eye_vector,
             comps.normal_vector
         )
+
+    def color_at(self, ray):
+        intersections = self.intersect(ray)
+        hit = Intersections(*intersections).hit()
+        if hit is None:
+            return Color(0, 0, 0)
+        comps = Computations.prepare_computations(hit, ray)
+        return self.shade_hit(comps)
